@@ -1,0 +1,17 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: content-box;
+}
+body {
+	background-color: #dfdfdf;
+    font-family: 'Roboto',sans-serif;
+    color: #4b4b4b;
+    text-rendering: optimizeLegibility;
+}
+.btn a{
+    color:#fff;
+}
+.btn a:hover{
+    text-decoration: none;
+}
