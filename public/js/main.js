@@ -1,10 +1,16 @@
 var texto=document.getElementById("mensajes");
+var icono=document.getElementById("icono-microfono");
+
 texto.addEventListener("keyup",porfiPorfi);
+icono.addEventListener("click",enviarMensaje);
+
+function enviarMensaje(evento){
+    sendMensaje();
+}
 function porfiPorfi(evento){
     cambiarIcon();
 }
 function cambiarIcon(){
-    var icono=document.getElementById("icono-microfono");
     if(texto.value.length!=0){
         icono.classList.remove("icon-mic");
         icono.classList.add("icon-insert_emoticon");
@@ -14,7 +20,60 @@ function cambiarIcon(){
     }
 }
 
+// ---------------------------------- enviar mensaje con ENTER
 
+texto.addEventListener("keyup",sendEnter);
+function sendEnter(evento){
+    if(evento.keyCode==13){
+        sendMensaje();
+    }
+}
+
+function sendMensaje(){
+    var mensaje=texto.value;
+    var div=document.createElement("div");
+    div.className="w-message w-message-out";
+    var divDos=document.createElement("div");
+    divDos.className="w-message-text";
+    var divTres=document.getElementById("chat");
+    var text=document.createElement("p");
+    var time=document.createElement("div");
+    time.className="time";
+    var porfi=new Date();
+    var hora=porfi.getHours();
+    var minuto=porfi.getMinutes();
+    if(minuto<10){minuto='0'+minuto}
+    divTres.scrollTop=divTres.scrollHeight;
+
+    time.innerHTML=hora+":"+minuto;
+    text.innerHTML=mensaje;
+    div.appendChild(divDos);
+    divDos.appendChild(text);
+    divDos.appendChild(time);
+    divTres.appendChild(div);
+    
+    texto.value="";
+    texto.focus();
+}
+
+
+// --------------------------------- busqueda de contactos
+
+var search = document.getElementById("search"),
+   contacto = document.getElementsByTagName("h4"),
+   forEach = Array.prototype.forEach;
+
+search.addEventListener("keyup", function(e){
+   var choice = this.value;
+ 
+   forEach.call(contacto, function(f){
+       if (f.innerHTML.toLowerCase().search(choice.toLowerCase()) == -1)
+           f.parentNode.parentNode.style.display = "none";   
+       else
+          f.parentNode.parentNode.style.display = "block";        
+   });
+}, 
+false);
 /*
 boton.addEventListener("click",onButtonClick);
 
