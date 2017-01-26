@@ -11,6 +11,10 @@ body {
     text-rendering: optimizeLegibility;
 }
 
+#demo li:hover{
+    cursor: pointer;
+}
+
 li { 
 	list-style: none; 
 }

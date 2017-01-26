@@ -5,7 +5,9 @@ texto.addEventListener("keyup",porfiPorfi);
 icono.addEventListener("click",enviarMensaje);
 
 function enviarMensaje(evento){
+    if(texto.value.length!=0){
     sendMensaje();
+    }
 }
 function porfiPorfi(evento){
     cambiarIcon();
@@ -13,10 +15,13 @@ function porfiPorfi(evento){
 function cambiarIcon(){
     if(texto.value.length!=0){
         icono.classList.remove("icon-mic");
-        icono.classList.add("icon-insert_emoticon");
+        icono.classList.add("icon-sendfabi");
     }
     else{
-        icono.classList.add("icon-mic");
+        if(texto.value.length==0){
+            icono.classList.remove("icon-sendfabi");
+            icono.classList.add("icon-mic");
+        }
     }
 }
 
@@ -24,7 +29,7 @@ function cambiarIcon(){
 
 texto.addEventListener("keyup",sendEnter);
 function sendEnter(evento){
-    if(evento.keyCode==13){
+    if(evento.keyCode==13 && texto.value.length!=0){
         sendMensaje();
     }
 }
@@ -54,14 +59,15 @@ function sendMensaje(){
     
     texto.value="";
     texto.focus();
+    cambiarIcon();
 }
 
 
-// --------------------------------- busqueda de contactos
+// --------------------------------- BUSCAR CONTACTOS
 
-var search = document.getElementById("search"),
-   contacto = document.getElementsByTagName("h4"),
-   forEach = Array.prototype.forEach;
+var search = document.getElementById("search");
+var contacto = document.getElementsByTagName("h4");
+var forEach = Array.prototype.forEach;
 
 search.addEventListener("keyup", function(e){
    var choice = this.value;
@@ -74,6 +80,24 @@ search.addEventListener("keyup", function(e){
    });
 }, 
 false);
+
+// ----------------------------------- MOSTRAR CONTACTOS
+
+var list=document.getElementById("demo");
+var contactos=list.getElementsByTagName("li");
+for(i in contactos){
+    contactos[i].addEventListener("click",seleccionarContacto);
+}
+function seleccionarContacto(evento){
+    mostrarContacto();
+}
+function mostrarContacto(){
+    var nombre=document.getElementsByClassName("w-contact-name")[0];
+    nombre.innerHTML=
+}
+
+console.log(contactos);
+
 /*
 boton.addEventListener("click",onButtonClick);
 
