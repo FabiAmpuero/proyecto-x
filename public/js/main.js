@@ -92,11 +92,22 @@ function seleccionarContacto(evento){
     mostrarContacto();
 }
 function mostrarContacto(){
-    var nombre=document.getElementsByClassName("w-contact-name")[0];
-    nombre.innerHTML=
+    
+    var imgAvatar=document.createElement("img");
+    imgAvatar.setAttribute("src","image/logocodeacademy.png");
+    var nameContact=document.createElement("h3");
+    nameContact.className("w-contact-name");
+    var miembros=document.createElement("ul");
+    miembros.className="w-users-messages";
+    
+    nameContact.innerHTML="oli";
+    miembros.appendChild(avatar);
+    imgAvatar.appendChild(avatar);
+    nameContact.appendChild(avatar);
+    alert("oli");
 }
 
-console.log(contactos);
+
 
 /*
 boton.addEventListener("click",onButtonClick);
