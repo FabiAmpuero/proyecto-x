@@ -92,7 +92,9 @@ function seleccionarContacto(evento){
     mostrarContacto();
 }
 function mostrarContacto(){
-    
+    alert("oli");
+    /*
+    var avatar=document.getElementsByClassName("w-chat-profile")[0];
     var imgAvatar=document.createElement("img");
     imgAvatar.setAttribute("src","image/logocodeacademy.png");
     var nameContact=document.createElement("h3");
@@ -103,8 +105,7 @@ function mostrarContacto(){
     nameContact.innerHTML="oli";
     miembros.appendChild(avatar);
     imgAvatar.appendChild(avatar);
-    nameContact.appendChild(avatar);
-    alert("oli");
+    nameContact.appendChild(avatar);*/
 }
 
 
