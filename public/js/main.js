@@ -40,6 +40,7 @@ function sendMensaje(){
     div.className="w-message w-message-out";
     var divDos=document.createElement("div");
     divDos.className="w-message-text";
+
     var divTres=document.getElementById("chat");
     var text=document.createElement("p");
     var time=document.createElement("div");
@@ -91,76 +92,30 @@ for(i in contactos){
 function seleccionarContacto(evento){
     mostrarContacto();
 }
+function listClick (_img,_name,_mensaje){
+
+}
 function mostrarContacto(){
-    alert("oli");
-    /*
-    var avatar=document.getElementsByClassName("w-chat-profile")[0];
+    // conectando con el div donde estara todo
+    var avatar = document.getElementsByClassName("w-chat-profile")[0];
+    // creacion de los elementos que estaran dentro del div
     var imgAvatar=document.createElement("img");
     imgAvatar.setAttribute("src","image/logocodeacademy.png");
+
     var nameContact=document.createElement("h3");
-    nameContact.className("w-contact-name");
+    nameContact.className="w-contact-name";
+
     var miembros=document.createElement("ul");
     miembros.className="w-users-messages";
+
+    var listaMiembros=document.createElement("li");
     
+    // conexion con el div principal
+    avatar.appendChild(imgAvatar);
+    avatar.appendChild(nameContact);
+    avatar.appendChild(miembros);
+    miembros.appendChild(listaMiembros);
     nameContact.innerHTML="oli";
-    miembros.appendChild(avatar);
-    imgAvatar.appendChild(avatar);
-    nameContact.appendChild(avatar);*/
 }
 
 
-
-/*
-boton.addEventListener("click",onButtonClick);
-
-function onButtonClick(evento){
-    agregarMensaje();
-}
-
-function agregarMensaje(){
-    if (texto.value == null || texto.value.length == 0 || /^\s*$/.test(texto.value)){
-        alert (texto.name+ ' no puede estar vacía o contener sólo espacios en blanco');
-        lista.removeChild(this.parentNode);
-    }
-    var mensaje=texto.value;
-    
-    //------------------------variables globales
-    check=document.createElement("input");
-    span=document.createElement("span");
-    item=document.createElement("li");
-    item.className="tarea";
-    
-    var icon=document.createElement("i");
-    icon.style.cursor="pointer";
-    check.setAttribute("type","checkbox");
-    check.className="check";
-    icon.className="glyphicon glyphicon-trash tacho";
-    
-    span.innerHTML=mensaje;
-    item.appendChild(check);
-    item.appendChild(span);
-    item.appendChild(icon);
-    lista.appendChild(item);
-    
-    texto.value="";
-    texto.focus();
-    
-    icon.addEventListener("click", onIconClick);
-    check.addEventListener("click", onChange);   
-}
-
-function onIconClick(evento){
-    console.log(evento.target.parentNode);
-    lista.removeChild(evento.target.parentNode);
-}
-
-function onChange(evento){
-    console.log(evento.target);
-    if(evento.target.checked){
-        evento.target.nextSibling.style.textDecoration="line-through";
-    } else{
-        evento.target.nextSibling.style.textDecoration="none";
-    }
-}
-
-*/
