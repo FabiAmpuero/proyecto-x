@@ -111,14 +111,19 @@ function mostrarContacto(){
     miembros.className="w-users-messages";
 
     var listaMiembros=document.createElement("li");
+    for(i in nombreContacto){
+        var nombreContacto=document.getElementsByClassName("w-contact-name")[i].textContent;
+    }
+    var imgContacto=document.getElementsByClassName("wh-44")[0].textContent;
+    var lastContacto=document.getElementsByClassName("w-last-message")[0].textContent;
     
-    var nombreContacto=document.getElementsByTagName("h4")[0].textContent;
     // conexion con el div principal
     avatar.appendChild(imgAvatar);
     avatar.appendChild(nameContact);
     avatar.appendChild(miembros);
     miembros.appendChild(listaMiembros);
     nameContact.innerHTML=nombreContacto;
+    
 }
 
 
