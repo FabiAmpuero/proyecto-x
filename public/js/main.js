@@ -83,14 +83,16 @@ search.addEventListener("keyup", function(e){
 false);
 
 // ----------------------------------- MOSTRAR CONTACTOS
-
+// demo es el ul que contiene las ultimas conversaciones
 var list=document.getElementById("demo");
 var contactos=list.getElementsByTagName("li");
+// cada li va a tener un evento click
 for(i in contactos){
     contactos[i].addEventListener("click",seleccionarContacto);
 }
 function seleccionarContacto(evento){
     mostrarContacto();
+    console.log(contactos[0]);
 }
 function listClick (_img,_name,_mensaje){
 
@@ -110,12 +112,13 @@ function mostrarContacto(){
 
     var listaMiembros=document.createElement("li");
     
+    var nombreContacto=document.getElementsByTagName("h4")[0].textContent;
     // conexion con el div principal
     avatar.appendChild(imgAvatar);
     avatar.appendChild(nameContact);
     avatar.appendChild(miembros);
     miembros.appendChild(listaMiembros);
-    nameContact.innerHTML="oli";
+    nameContact.innerHTML=nombreContacto;
 }
 
 
